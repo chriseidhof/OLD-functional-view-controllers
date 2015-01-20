@@ -35,7 +35,7 @@ let chooseAlbum: ViewController<[Album],Album> = tableViewController { cell, alb
     return cell
 }
 
-let navigation = map(rootViewController(chooseArtist), { $0.albums }) >>> chooseAlbum
+let navigation = rootViewController(chooseArtist).map { $0.albums } >>> chooseAlbum
 
 
 @UIApplicationMain

@@ -38,6 +38,16 @@ struct NavigationController<A,B> {
     let create: (A, (B, UINavigationController) -> ()) -> UINavigationController
 }
 
+extension NavigationController {
+    func map<C>(f: B -> C) -> NavigationController<A,C> {
+        return NavigationController<A, C> { x, callback in
+            return self.create(x) { (y, nc) in
+                callback(f(y), nc)
+            }
+        }
+    }
+}
+
 func run<A,B>(nc: NavigationController<A,B>, initialValue: A, finish: B -> ()) -> UINavigationController {
     return nc.create(initialValue) { b, _ in
         finish(b)
