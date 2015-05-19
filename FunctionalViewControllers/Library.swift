@@ -79,21 +79,21 @@ func >>><A,B,C>(l: NavigationController<A,B>, r: ViewController<B,C>) -> Navigat
 
 func tableViewController<A>(render: (UITableViewCell, A) -> UITableViewCell) -> ViewController<[A],A> {
     
-    return ViewController({ (items: [A], callback: A -> ()) -> UIViewController  in
-        var myTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MyTableViewController") as MyViewController
-        myTableViewController.items = items.map { Box($0) }
-        myTableViewController.configureCell = { cell, obj in
+    return ViewController(create: { (items: [A], callback: A -> ()) -> UIViewController  in
+        var myTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MyTableViewController") as? MyViewController
+        myTableViewController?.items = items.map { Box($0) }
+        myTableViewController?.configureCell = { cell, obj in
             if let boxed = obj as? Box<A> {
                 return render(cell, boxed.unbox)
             }
             return cell
         }
-        myTableViewController.callback = { x in
+        myTableViewController?.callback = { x in
             if let boxed = x as? Box<A> {
                 callback(boxed.unbox)
             }
         }
-        return myTableViewController
+        return myTableViewController ?? MyViewController()
     })
 }
 
@@ -107,9 +107,13 @@ class MyViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-        var obj: AnyObject = items[indexPath.row]
-        return configureCell(cell, obj)
+        if let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell {
+            var obj: AnyObject = items[indexPath.row]
+            return configureCell(cell, obj)
+        }
+        else {
+            return UITableViewCell()
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
