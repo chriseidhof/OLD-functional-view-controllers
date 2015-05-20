@@ -13,11 +13,18 @@ import UIKit
 /**
 	Returns a ViewController that will create a TableViewController with [A] items and returning the selected item A upon completion.
 */
-func collectionViewController<A>(render: (UICollectionViewCell, A) -> UICollectionViewCell) -> ViewController<[A],A> {
+func collectionViewController<A>(configuration: CollectionViewControllerConfiguration, render: (UICollectionViewCell, A) -> UICollectionViewCell) -> ViewController<[A],A> {
 	
 	return ViewController(create: { (items: [A], callback: A -> ()) in
 		//	for now we create the an empty collection view controller
-		var collectionViewController = CollectionViewController()
+		var collectionViewController = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout(), configuration: configuration)
+		
+		if let storyboard = configuration.collectionViewControllerStoryboard,
+			let identifier = configuration.collectionViewControllerStoryboardIdentifier {
+				collectionViewController = storyboard.instantiateViewControllerWithIdentifier(identifier) as! CollectionViewController
+			}
+		
+		collectionViewController.configuration = configuration
 		//	boxes all of the items and adds them to the collection view controller
 		collectionViewController.items = items.map { Box($0) }
 		//	configures each cell using the given render method, using the cell and the relevant unboxed item
@@ -39,6 +46,13 @@ func collectionViewController<A>(render: (UICollectionViewCell, A) -> UICollecti
 	})
 }
 
+struct CollectionViewControllerConfiguration {
+	var collectionViewCellIdentifier: String?
+	var collectionViewCellNibName: String?
+	var collectionViewControllerStoryboardIdentifier: String?
+	var collectionViewControllerStoryboard: UIStoryboard?
+}
+
 //	MARK: TableViewController Class
 
 class CollectionViewController: UICollectionViewController {
@@ -51,15 +65,44 @@ class CollectionViewController: UICollectionViewController {
 	var callback: AnyObject -> () = { _ in () }
 	/**	A block that configures a cell with the given object.	*/
 	var configureCell: (UICollectionViewCell, AnyObject) -> UICollectionViewCell = { $0.0 }
+	/**	An object which configures this generic collection view controller.	*/
+	var configuration: CollectionViewControllerConfiguration? {
+		didSet {
+			if let configuration = configuration,
+				let cellNibName = configuration.collectionViewCellNibName,
+				let identifier = configuration.collectionViewCellIdentifier {
+					let cellNib = UINib(nibName: cellNibName, bundle: nil)
+					collectionView?.registerNib(cellNib, forCellWithReuseIdentifier: identifier)
+					registeredCell = true
+			}
+			else {
+				registeredCell = false
+			}
+		}
+	}
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-		collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+	//	MARK: Private Properties
+	
+	private var registeredCell = false
+	
+	//	MARK: Initialisation
+	
+	init(collectionViewLayout layout: UICollectionViewLayout, configuration: CollectionViewControllerConfiguration) {
+		self.configuration = configuration
+		super.init(collectionViewLayout: layout)
+	}
+
+	required init(coder aDecoder: NSCoder) {
+	    super.init(coder: aDecoder)
 	}
 	
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell: UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! UICollectionViewCell
+		var cell = UICollectionViewCell()
+		
+		if registeredCell {
+			cell = collectionView.dequeueReusableCellWithReuseIdentifier(configuration!.collectionViewCellIdentifier!, forIndexPath: indexPath) as! UICollectionViewCell
+		}
+		
 		let obj: AnyObject = items[indexPath.row]
 		return configureCell(cell, obj)
 	}
