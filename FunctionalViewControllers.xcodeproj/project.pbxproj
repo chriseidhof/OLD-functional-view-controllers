@@ -14,6 +14,7 @@
 		1AA373651B0C863200CF11CA /* FunctionalViewControllersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA373621B0C863200CF11CA /* FunctionalViewControllersTests.swift */; };
 		1AA373681B0C874700CF11CA /* MusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA373671B0C874700CF11CA /* MusicApp.swift */; };
 		1AA3736A1B0C977600CF11CA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA373691B0C977600CF11CA /* TableViewController.swift */; };
+		1AA3736C1B0C9F3D00CF11CA /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA3736B1B0C9F3D00CF11CA /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		1AA373641B0C863200CF11CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AA373671B0C874700CF11CA /* MusicApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicApp.swift; sourceTree = "<group>"; };
 		1AA373691B0C977600CF11CA /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		1AA3736B1B0C9F3D00CF11CA /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		83E6D91E19B797DC0049E6F4 /* FunctionalViewControllers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunctionalViewControllers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E6D93019B797DC0049E6F4 /* FunctionalViewControllersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalViewControllersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA373691B0C977600CF11CA /* TableViewController.swift */,
+				1AA3736B1B0C9F3D00CF11CA /* CollectionViewController.swift */,
 				1AA373521B0C862600CF11CA /* Library.swift */,
 			);
 			path = Controller;
@@ -250,6 +253,7 @@
 				1AA3735D1B0C862600CF11CA /* AppDelegate.swift in Sources */,
 				1AA3735B1B0C862600CF11CA /* Library.swift in Sources */,
 				1AA3736A1B0C977600CF11CA /* TableViewController.swift in Sources */,
+				1AA3736C1B0C9F3D00CF11CA /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
