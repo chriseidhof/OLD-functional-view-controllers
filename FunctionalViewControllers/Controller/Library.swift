@@ -120,9 +120,13 @@ func rootViewController<A,B>(vc: ViewController<A,B>) -> NavigationController<A,
 
 infix operator >>> { associativity right }
 
+/**
+	Pushes a view controller onto the stack.
+ */
 func >>><A,B,C>(l: NavigationController<A,B>, r: ViewController<B,C>) -> NavigationController<A,C> {
     return NavigationController { x, callback in
         let nc = l.create(x, { b, nc in
+			//	use the navigation controller's call back value of b as the initial value for the next view controller
             let rvc = r.create(b, { c in
                 callback(c, nc)
             })
@@ -131,49 +135,3 @@ func >>><A,B,C>(l: NavigationController<A,B>, r: ViewController<B,C>) -> Navigat
         return nc
     }
 }
-
-func tableViewController<A>(render: (UITableViewCell, A) -> UITableViewCell) -> ViewController<[A],A> {
-    
-    return ViewController(create: { (items: [A], callback: A -> ()) -> UIViewController  in
-        var myTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MyTableViewController") as! TableViewController
-        myTableViewController.items = items.map { Box($0) }
-        myTableViewController.configureCell = { cell, obj in
-            if let boxed = obj as? Box<A> {
-                return render(cell, boxed.unbox)
-            }
-            return cell
-        }
-        myTableViewController.callback = { x in
-            if let boxed = x as? Box<A> {
-                callback(boxed.unbox)
-            }
-        }
-        return myTableViewController
-    })
-}
-
-class TableViewController: UITableViewController {
-    var items: NSArray = []
-    var callback: AnyObject -> () = { _ in () }
-    var configureCell: (UITableViewCell, AnyObject) -> UITableViewCell = { $0.0 }
-    
-    override func viewDidLoad() {
-        println("load")
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-        var obj: AnyObject = items[indexPath.row]
-        return configureCell(cell, obj)
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var obj: AnyObject = items[indexPath.row]
-        callback(obj)
-    }
-}
-
