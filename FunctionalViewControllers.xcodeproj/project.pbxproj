@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83E6D92419B797DC0049E6F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D92319B797DC0049E6F4 /* AppDelegate.swift */; };
-		83E6D92619B797DC0049E6F4 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D92519B797DC0049E6F4 /* Library.swift */; };
-		83E6D92919B797DC0049E6F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E6D92719B797DC0049E6F4 /* Main.storyboard */; };
-		83E6D92B19B797DC0049E6F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83E6D92A19B797DC0049E6F4 /* Images.xcassets */; };
-		83E6D93719B797DC0049E6F4 /* FunctionalViewControllersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D93619B797DC0049E6F4 /* FunctionalViewControllersTests.swift */; };
+		1AA3735B1B0C862600CF11CA /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA373521B0C862600CF11CA /* Library.swift */; };
+		1AA3735C1B0C862600CF11CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA373541B0C862600CF11CA /* Images.xcassets */; };
+		1AA3735D1B0C862600CF11CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA373561B0C862600CF11CA /* AppDelegate.swift */; };
+		1AA3735F1B0C862600CF11CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA373591B0C862600CF11CA /* Main.storyboard */; };
+		1AA373651B0C863200CF11CA /* FunctionalViewControllersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA373621B0C863200CF11CA /* FunctionalViewControllersTests.swift */; };
+		1AA373681B0C874700CF11CA /* MusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA373671B0C874700CF11CA /* MusicApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,15 +26,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AA373521B0C862600CF11CA /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		1AA373541B0C862600CF11CA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1AA373561B0C862600CF11CA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1AA373571B0C862600CF11CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AA3735A1B0C862600CF11CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1AA373621B0C863200CF11CA /* FunctionalViewControllersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalViewControllersTests.swift; sourceTree = "<group>"; };
+		1AA373641B0C863200CF11CA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AA373671B0C874700CF11CA /* MusicApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicApp.swift; sourceTree = "<group>"; };
 		83E6D91E19B797DC0049E6F4 /* FunctionalViewControllers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunctionalViewControllers.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		83E6D92219B797DC0049E6F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83E6D92319B797DC0049E6F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		83E6D92519B797DC0049E6F4 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
-		83E6D92819B797DC0049E6F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		83E6D92A19B797DC0049E6F4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		83E6D93019B797DC0049E6F4 /* FunctionalViewControllersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalViewControllersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		83E6D93519B797DC0049E6F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83E6D93619B797DC0049E6F4 /* FunctionalViewControllersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalViewControllersTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +56,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AA373501B0C862600CF11CA /* FunctionalViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373511B0C862600CF11CA /* Controller */,
+				1AA373531B0C862600CF11CA /* Resources */,
+				1AA373551B0C862600CF11CA /* Supporting-Files */,
+				1AA373581B0C862600CF11CA /* User-Interface */,
+			);
+			path = FunctionalViewControllers;
+			sourceTree = "<group>";
+		};
+		1AA373511B0C862600CF11CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373521B0C862600CF11CA /* Library.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1AA373531B0C862600CF11CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373541B0C862600CF11CA /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1AA373551B0C862600CF11CA /* Supporting-Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373671B0C874700CF11CA /* MusicApp.swift */,
+				1AA373561B0C862600CF11CA /* AppDelegate.swift */,
+				1AA373571B0C862600CF11CA /* Info.plist */,
+			);
+			path = "Supporting-Files";
+			sourceTree = "<group>";
+		};
+		1AA373581B0C862600CF11CA /* User-Interface */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373591B0C862600CF11CA /* Main.storyboard */,
+			);
+			path = "User-Interface";
+			sourceTree = "<group>";
+		};
+		1AA373601B0C863200CF11CA /* FunctionalViewControllersTests */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373611B0C863200CF11CA /* Source */,
+				1AA373631B0C863200CF11CA /* Supporting-Files */,
+			);
+			path = FunctionalViewControllersTests;
+			sourceTree = "<group>";
+		};
+		1AA373611B0C863200CF11CA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373621B0C863200CF11CA /* FunctionalViewControllersTests.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1AA373631B0C863200CF11CA /* Supporting-Files */ = {
+			isa = PBXGroup;
+			children = (
+				1AA373641B0C863200CF11CA /* Info.plist */,
+			);
+			path = "Supporting-Files";
+			sourceTree = "<group>";
+		};
 		83E6D91519B797DC0049E6F4 = {
 			isa = PBXGroup;
 			children = (
-				83E6D92019B797DC0049E6F4 /* FunctionalViewControllers */,
-				83E6D93319B797DC0049E6F4 /* FunctionalViewControllersTests */,
+				1AA373501B0C862600CF11CA /* FunctionalViewControllers */,
+				1AA373601B0C863200CF11CA /* FunctionalViewControllersTests */,
 				83E6D91F19B797DC0049E6F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,43 +142,6 @@
 				83E6D93019B797DC0049E6F4 /* FunctionalViewControllersTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		83E6D92019B797DC0049E6F4 /* FunctionalViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				83E6D92319B797DC0049E6F4 /* AppDelegate.swift */,
-				83E6D92519B797DC0049E6F4 /* Library.swift */,
-				83E6D92719B797DC0049E6F4 /* Main.storyboard */,
-				83E6D92A19B797DC0049E6F4 /* Images.xcassets */,
-				83E6D92119B797DC0049E6F4 /* Supporting Files */,
-			);
-			path = FunctionalViewControllers;
-			sourceTree = "<group>";
-		};
-		83E6D92119B797DC0049E6F4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				83E6D92219B797DC0049E6F4 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		83E6D93319B797DC0049E6F4 /* FunctionalViewControllersTests */ = {
-			isa = PBXGroup;
-			children = (
-				83E6D93619B797DC0049E6F4 /* FunctionalViewControllersTests.swift */,
-				83E6D93419B797DC0049E6F4 /* Supporting Files */,
-			);
-			path = FunctionalViewControllersTests;
-			sourceTree = "<group>";
-		};
-		83E6D93419B797DC0049E6F4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				83E6D93519B797DC0049E6F4 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,8 +224,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83E6D92919B797DC0049E6F4 /* Main.storyboard in Resources */,
-				83E6D92B19B797DC0049E6F4 /* Images.xcassets in Resources */,
+				1AA3735F1B0C862600CF11CA /* Main.storyboard in Resources */,
+				1AA3735C1B0C862600CF11CA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +243,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83E6D92619B797DC0049E6F4 /* Library.swift in Sources */,
-				83E6D92419B797DC0049E6F4 /* AppDelegate.swift in Sources */,
+				1AA373681B0C874700CF11CA /* MusicApp.swift in Sources */,
+				1AA3735D1B0C862600CF11CA /* AppDelegate.swift in Sources */,
+				1AA3735B1B0C862600CF11CA /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83E6D93719B797DC0049E6F4 /* FunctionalViewControllersTests.swift in Sources */,
+				1AA373651B0C863200CF11CA /* FunctionalViewControllersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,10 +268,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		83E6D92719B797DC0049E6F4 /* Main.storyboard */ = {
+		1AA373591B0C862600CF11CA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				83E6D92819B797DC0049E6F4 /* Base */,
+				1AA3735A1B0C862600CF11CA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -325,7 +361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = FunctionalViewControllers/Info.plist;
+				INFOPLIST_FILE = "FunctionalViewControllers/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -336,7 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = FunctionalViewControllers/Info.plist;
+				INFOPLIST_FILE = "FunctionalViewControllers/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,7 +390,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = FunctionalViewControllersTests/Info.plist;
+				INFOPLIST_FILE = "FunctionalViewControllersTests/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FunctionalViewControllers.app/FunctionalViewControllers";
@@ -369,7 +405,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = FunctionalViewControllersTests/Info.plist;
+				INFOPLIST_FILE = "FunctionalViewControllersTests/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FunctionalViewControllers.app/FunctionalViewControllers";
