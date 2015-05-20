@@ -80,7 +80,7 @@ func >>><A,B,C>(l: NavigationController<A,B>, r: ViewController<B,C>) -> Navigat
 func tableViewController<A>(render: (UITableViewCell, A) -> UITableViewCell) -> ViewController<[A],A> {
     
     return ViewController(create: { (items: [A], callback: A -> ()) -> UIViewController  in
-        var myTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MyTableViewController") as! MyViewController
+        var myTableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MyTableViewController") as! TableViewController
         myTableViewController.items = items.map { Box($0) }
         myTableViewController.configureCell = { cell, obj in
             if let boxed = obj as? Box<A> {
@@ -97,7 +97,7 @@ func tableViewController<A>(render: (UITableViewCell, A) -> UITableViewCell) -> 
     })
 }
 
-class MyViewController: UITableViewController {
+class TableViewController: UITableViewController {
     var items: NSArray = []
     var callback: AnyObject -> () = { _ in () }
     var configureCell: (UITableViewCell, AnyObject) -> UITableViewCell = { $0.0 }
