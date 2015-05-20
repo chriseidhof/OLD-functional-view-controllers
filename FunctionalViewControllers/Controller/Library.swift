@@ -10,6 +10,10 @@ import UIKit
 
 //	MARK: Box Class
 
+/**
+	By boxing values we can treat structs and classes the same.
+ */
+
 public class Box<T> {
     public let unbox: T
     public init(_ value: T) {
