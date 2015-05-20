@@ -55,7 +55,7 @@ class TableViewController: UITableViewController {
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		//	for a given cell we use the appropriate object to configure it
 		let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-		var obj: AnyObject = items[indexPath.row]
+		let obj: AnyObject = items[indexPath.row]
 		return configureCell(cell, obj)
 	}
 	
@@ -65,7 +65,7 @@ class TableViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		//	when the user selects the cell we call back with the appropriate selected object
-		var obj: AnyObject = items[indexPath.row]
+		let obj: AnyObject = items[indexPath.row]
 		callback(obj)
 	}
 }
