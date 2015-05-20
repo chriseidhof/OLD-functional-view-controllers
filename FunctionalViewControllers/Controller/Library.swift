@@ -8,37 +8,74 @@
 
 import UIKit
 
+//	MARK: Box Class
+
 public class Box<T> {
     public let unbox: T
-    public init(_ value: T) { self.unbox = value }
+    public init(_ value: T) {
+		self.unbox = value
+	}
 }
 
+//	MARK: Internal Functions
 
+/**
+	Maps a ViewController with a callback that takes B to a ViewController with a callback that takes C.
+	
+	:param:	vc		The ViewController to be mapped.
+	:param:	f		The function responsible for mapping B to C.
+
+	:returns:		A ViewController with a callback that takes C mapped from the given vc.
+ */
 func map<A,B,C>(vc: ViewController<A,B>, f: B -> C) -> ViewController<A,C> {
+	
     return ViewController { x, callback in
-        return vc.create(x) { y in
-            callback(f(y))
+        return vc.create(x) {
+			//	use f to map B to C
+            callback(f($0))
         }
     }
 }
 
-func map<A,B,C>(vc: NavigationController<A,B>, f: B -> C) -> NavigationController<A,C> {
+/**
+	Maps a NavigationController with a callback B to a NavigationController with a callback that takes C.
+
+	:param:	navCon	The NavigationController to be mapped.
+	:param:	f		The function responsible for mapping B to C.
+
+	:returns:		A NavigationController with a callback that takes C mapped from the given navCon.
+*/
+func map<A,B,C>(navCon: NavigationController<A,B>, f: B -> C) -> NavigationController<A,C> {
     return NavigationController { x, callback in
-        return vc.create(x) { (y, nc) in
+        return navCon.create(x) { (y, nc) in
+			//	use f to map B to C
             callback(f(y), nc)
         }
     }
 }
 
+//	MARK: Controller Structs
+
 struct ViewController<A,B> {
-    let create: (A,B -> ()) -> UIViewController
+	/**	A function which takes an object and a function, and returns a UIVIewController. */
+    let create: (A, B -> ()) -> UIViewController
 }
 
 struct NavigationController<A,B> {
+	/**	A function which takes an object and a function, and returns a UINavigationController. */
     let create: (A, (B, UINavigationController) -> ()) -> UINavigationController
 }
 
+//	MARK: NavigationController Extension
+
 extension NavigationController {
+	/**
+		Maps current NaviationController with a callback B to a NavigationController with a callback that takes C.
+	
+		:param:	f		The function responsible for mapping B to C.
+		
+		:returns:		A NavigationController with a callback that takes C.
+	*/
     func map<C>(f: B -> C) -> NavigationController<A,C> {
         return NavigationController<A, C> { x, callback in
             return self.create(x) { (y, nc) in
