@@ -57,12 +57,12 @@ func map<A,B,C>(navCon: NavigationController<A,B>, f: B -> C) -> NavigationContr
 //	MARK: Controller Structs
 
 struct ViewController<A,B> {
-	/**	A function which takes an object and a function, and returns a UIVIewController. */
+	/**	A function which will create a UIViewController with the given initial A, and a completion callback which take B. */
     let create: (A, B -> ()) -> UIViewController
 }
 
 struct NavigationController<A,B> {
-	/**	A function which takes an object and a function, and returns a UINavigationController. */
+	/**	A function which will create a UINavigation with the given initial A, and a completion callback which take B and another UINavigationController. */
     let create: (A, (B, UINavigationController) -> ()) -> UINavigationController
 }
 
@@ -85,20 +85,38 @@ extension NavigationController {
     }
 }
 
+/**
+	Convenience function that will return a UINavigationController with it's initial value of A, and it's completion callback.
+
+	:param:	nc				The NavigationController used to create the UINavigationController.
+	:param:	initialValue	The initial value used to create the UINavigationController.
+	:param:	finish			A block to be called when the return UINavigationController is finished.
+ */
 func run<A,B>(nc: NavigationController<A,B>, initialValue: A, finish: B -> ()) -> UINavigationController {
+	//	create the UINavigationController with the given initial value, and call it's completion when it is finished
     return nc.create(initialValue) { b, _ in
         finish(b)
     }
 }
 
+/**
+	Creates a NavigationController with ViewController as it's root view controller.
+
+	:param:	vc			The ViewController that create the root UIViewController.
+
+	:returns:			A NavigationController that will create a UINavigationController with vc's UIViewController as it's root view controller.
+ */
 func rootViewController<A,B>(vc: ViewController<A,B>) -> NavigationController<A,B> {
     return NavigationController { initial, callback in
         let navController = UINavigationController()
+		//	create a view controller when when it finishes calls the navigation controller's completion callback
         let rootController = vc.create(initial, { callback($0, navController) } )
         navController.viewControllers = [rootController]
         return navController
     }
 }
+
+//	MARK: Operator Overloading
 
 infix operator >>> { associativity right }
 
